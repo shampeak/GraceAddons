@@ -1,0 +1,27 @@
+{
+    "name": "grace/easy",
+    "description": "dev",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shampeak",
+            "email": "shampeak@sina.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php" : ">=5.5.9",
+        "lulu/db": "v1.0.1",
+        "grace/pack": "v1.0.2.x-dev",
+	    "smarty/smarty": "~3.1",
+        "erusev/parsedown": "^1.6"
+    },
+    "autoload":{
+        "files": ["App/Helper.php"],
+        "psr-4":{
+            "App\\": "App",
+            "App\\Addons\\": "App\\Addons\\src\\"
+        }
+    }
+}

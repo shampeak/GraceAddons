@@ -1,0 +1,198 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "7107ff0da71d3c9acef6874499ff3fd1",
+    "content-hash": "c8fe70b6f099061b47620534f5505243",
+    "packages": [
+        {
+            "name": "erusev/parsedown",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown.git",
+                "reference": "3ebbd730b5c2cf5ce78bc1bf64071407fc6674b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/3ebbd730b5c2cf5ce78bc1bf64071407fc6674b7",
+                "reference": "3ebbd730b5c2cf5ce78bc1bf64071407fc6674b7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Parsedown": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "Parser for Markdown.",
+            "homepage": "http://parsedown.org",
+            "keywords": [
+                "markdown",
+                "parser"
+            ],
+            "time": "2015-10-04 16:44:32"
+        },
+        {
+            "name": "grace/pack",
+            "version": "v1.0.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shampeak/GracePack.git",
+                "reference": "853cb7be5a1e17a25773d49d0f0e84c821f2ce62"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shampeak/GracePack/zipball/853cb7be5a1e17a25773d49d0f0e84c821f2ce62",
+                "reference": "853cb7be5a1e17a25773d49d0f0e84c821f2ce62",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Grace\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "shampeak",
+                    "email": "shampeak@sina.com"
+                }
+            ],
+            "description": "dev",
+            "time": "2016-07-09 06:36:19"
+        },
+        {
+            "name": "lulu/db",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/siluzhou/DBDriver.git",
+                "reference": "cffd78b3592b6583dfa47bdc51afd012bd83500f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/siluzhou/DBDriver/zipball/cffd78b3592b6583dfa47bdc51afd012bd83500f",
+                "reference": "cffd78b3592b6583dfa47bdc51afd012bd83500f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lulu\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "siluzhou",
+                    "email": "siluzhou_pku@163.com"
+                }
+            ],
+            "description": "DBDriver",
+            "keywords": [
+                "database",
+                "pdo"
+            ],
+            "time": "2016-07-02 02:55:36"
+        },
+        {
+            "name": "smarty/smarty",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smarty-php/smarty.git",
+                "reference": "c666ec9a347d69abb58bb1a2d734bcd68cabfe6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/c666ec9a347d69abb58bb1a2d734bcd68cabfe6d",
+                "reference": "c666ec9a347d69abb58bb1a2d734bcd68cabfe6d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "libs/Smarty.class.php",
+                    "libs/SmartyBC.class.php",
+                    "libs/sysplugins/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Monte Ohrt",
+                    "email": "monte@ohrt.com"
+                },
+                {
+                    "name": "Uwe Tews",
+                    "email": "uwe.tews@googlemail.com"
+                },
+                {
+                    "name": "Rodney Rehm",
+                    "email": "rodney.rehm@medialize.de"
+                }
+            ],
+            "description": "Smarty - the compiling PHP template engine",
+            "homepage": "http://www.smarty.net",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2016-07-14 18:32:41"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "grace/pack": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.5.9"
+    },
+    "platform-dev": []
+}
