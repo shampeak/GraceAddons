@@ -16,15 +16,10 @@ class Home extends BaseController {
          * 直接根据$_GET['ao'] 进行路由
          * 用在功能性操作
          */
-        $res = \App\Addons\Addons::Run();       //执行
+//        $res = \App\Addons\Addons::Run();       //执行
 
+echo 123;
 
-
-
-        exit;
-        echo '---';
-echo $res;
-        echo '---';
 
         exit;
 
@@ -36,6 +31,7 @@ echo $res;
          * $baseurl 特殊情况下制定调用的路径 $baseurl = /admin/?be=9 默认,当前路径去除ad参数
          * $request为参数 默认$_GET+$_POST
          */
+
         \App\Addons\Addons::Start($routerstr,$baseurl,$request);
 
         \App\Addons\Addons::Start('addons'); //出管理界面=>对所有addons进行管理

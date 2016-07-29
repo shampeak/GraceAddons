@@ -23,8 +23,8 @@ class Bootstrap
         /*系统级配置*/
         dc(\Grace\Vo\Vo::getInstance(include(APPROOT.'Config/Vo.php'))->ObjectConfig['Config']);
 
-
         $get = app('req')->get;
+
         $controller = ($get['c']?:(isset($get['C'])?$get['C']:''))?:'Home';
         $mothed     = ($get['a']?:(isset($get['A'])?$get['A']:''))?:'Index';
 
@@ -40,7 +40,8 @@ class Bootstrap
                 'Prefix'        => 'do',
             ],
         ]);
-//ok,路由字段设置好了
+
+        //ok,路由字段设置好了
 
         $router = req('Router');
 //路由数据合法性检查
