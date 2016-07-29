@@ -9,27 +9,27 @@ class Application
 
     /*
     * @var null
-    * wiseµ¥Àýµ÷ÓÃ
+    * wiseå•ä¾‹è°ƒç”¨
     */
-    private static $_instance = null;       //µ¥Àýµ÷ÓÃ
+    private static $_instance = null;       //å•ä¾‹è°ƒç”¨
 
-    //·þÎñ¶ÔÏó´æ´¢
-    public $Providers       = array();             //·þÎñ¶ÔÏó´æ´¢ Ó³Éä
+    //æœåŠ¡å¯¹è±¡å­˜å‚¨
+    public $Providers       = array();             //æœåŠ¡å¯¹è±¡å­˜å‚¨ æ˜ å°„
 
-    //¶ÔÏóÊµÀý
-    public $Instances       = array();             //·þÎñ¶ÔÏó´æ´¢ ÊµÀý
+    //å¯¹è±¡å®žä¾‹
+    public $Instances       = array();             //æœåŠ¡å¯¹è±¡å­˜å‚¨ å®žä¾‹
 
     /*
     * @param string $conf
-    * ¸ù¾ÝÅäÖÃ»ñÈ¡Éè¶¨
+    * æ ¹æ®é…ç½®èŽ·å–è®¾å®š
     */
     private function __construct($voconfig = []){
-        //±éÀúapplicationÄ¿Â¼ÏÂµÄÎÄ¼þ,½¨Á¢¶ÔÏóÄ¿Â¼
+        //éåŽ†applicationç›®å½•ä¸‹çš„æ–‡ä»¶,å»ºç«‹å¯¹è±¡ç›®å½•
         $this->Baseroot = __DIR__.'/';
-        $this->Providers    = $this->load( __DIR__.'/Config/Application.php');           //¶ÔÏóÓ³Éä
+        $this->Providers    = $this->load( __DIR__.'/Config/Application.php');           //å¯¹è±¡æ˜ å°„
 
-//        $this->FileReflect      = $voconfig['FileReflect'];         //ÅäÖÃÎÄ¼þÓ³Éä
-//        $this->Providers        = $voconfig['Providers'];           //¶ÔÏóÓ³Éä
+//        $this->FileReflect      = $voconfig['FileReflect'];         //é…ç½®æ–‡ä»¶æ˜ å°„
+//        $this->Providers        = $voconfig['Providers'];           //å¯¹è±¡æ˜ å°„
 
 //
 //        if(is_array($this->FileReflect)){
@@ -37,13 +37,13 @@ class Application
 //                $this->ObjectConfig[ucfirst($key)] =  $this->load($file);
 //            }
 //        }
-//        // print_r($this->ObjectConfig);       //»ñµÃÅäÖÃ $this->ObjectConfig
+//        // print_r($this->ObjectConfig);       //èŽ·å¾—é…ç½® $this->ObjectConfig
 
     }
 
     /*
     |------------------------------------------------------------
-    | µ¥Àýµ÷ÓÃ
+    | å•ä¾‹è°ƒç”¨
     |------------------------------------------------------------
     */
     public static function getInstance($config = []){
@@ -55,7 +55,7 @@ class Application
 
     /*
     |------------------------------------------------------------
-    | ÊµÀý»¯×¢²áÀà
+    | å®žä¾‹åŒ–æ³¨å†Œç±»
     |------------------------------------------------------------
     */
     public function make($abstract)
@@ -64,7 +64,7 @@ class Application
         if (isset($this->instances[$abstract])) {
             return $this->instances[$abstract];
         }
-        //Î´¶¨ÒåµÄ·þÎñÀà ·µ»Ø¿ÕÖµ;
+        //æœªå®šä¹‰çš„æœåŠ¡ç±» è¿”å›žç©ºå€¼;
         if (!isset($this->Providers[$abstract])) {
             return null;
         }
@@ -75,7 +75,7 @@ class Application
 
     /*
     |------------------------------------------------------------
-    | ÊµÀý»¯Ò»¸öÄ£ÐÍ
+    | å®žä¾‹åŒ–ä¸€ä¸ªæ¨¡åž‹
     |------------------------------------------------------------
     */
     public function makeModel($abstract)
@@ -84,19 +84,19 @@ class Application
             return $this->Mo[$abstract];
         }
         if(!class_exists($abstract)){
-            //Ã»ÓÐÕÒµ½Ö´ÐÐ·½·¨
-            //Ö´ÐÐ404;
+            //æ²¡æœ‰æ‰¾åˆ°æ‰§è¡Œæ–¹æ³•
+            //æ‰§è¡Œ404;
             echo '<br>Miss file : <br>';
             echo $abstract;
             D();
         }
-        //¼ì²éÀàÎÄ¼þÊÇ·ñ´æÔÚ
-        $this->Mo[$abstract] = new $abstract();     //Ä£ÐÍ´æ´¢
+        //æ£€æŸ¥ç±»æ–‡ä»¶æ˜¯å¦å­˜åœ¨
+        $this->Mo[$abstract] = new $abstract();     //æ¨¡åž‹å­˜å‚¨
 
         return $this->Mo[$abstract];
     }
 
-    //½ûÖ¹Íâ²¿µ÷ÓÃ
+    //ç¦æ­¢å¤–éƒ¨è°ƒç”¨
     private function build($abstract)
     {
         $obj_ = $this->Providers[$abstract];
@@ -106,7 +106,7 @@ class Application
 
     /**
      * @return array
-     * ÈÝÆ÷¶ÔÏóÁÐ±í
+     * å®¹å™¨å¯¹è±¡åˆ—è¡¨
      */
     public function obList()
     {
@@ -122,37 +122,36 @@ class Application
 
     /**
      * @return string
-     * ½âÎöÎÄµµÊý¾Ý
+     * è§£æžæ–‡æ¡£æ•°æ®
      */
     public function document()
     {
         $data = $this->documentData();
+       // D($data);
+        extract($data);
+        if(empty($data['lm']) && empty($data['ar'])){
+            include $this->Baseroot.'Document/Application/Index.php';
+        }else{
+            include $this->Baseroot.'Document/Application/Frame.php';
+        }
 
-
-
-        include $this->Baseroot.'Document/Application/Frame.php';
         exit;
     }
 
     /**
      * @return string
-     * ·µ»ØÎÄµµÊý¾Ý½á¹¹
+     * è¿”å›žæ–‡æ¡£æ•°æ®ç»“æž„
      */
     public function documentData()
     {
-
-        //ÒªÇóÔÚ¸ùÏÂ·ÃÎÊ
-
-        //listÁÐ±í
+        //liståˆ—è¡¨
         $path = $this->Baseroot.'Document/Application/';
 
-        //¶¨Î»ÐèÒªÁ½¸ö±äÁ¿ 1 lm 2 ar
-        $res['lm'] = req('Get')['documentlm'];
-        $res['ar'] = req('Get')['documentar'];
+        //å®šä½éœ€è¦ä¸¤ä¸ªå˜é‡ 1 lm 2 ar
+        $res['lm'] = ucfirst(strtolower($_GET['documentlm']));
+        $res['ar'] = strtolower($_GET['documentar']);
 
-        D($_GET);
-
-        //É¨ÃèÏÂÃæµÄÎÄ¼þ¼Ð
+        //æ‰«æä¸‹é¢çš„æ–‡ä»¶å¤¹
         $list = [];
         if(is_dir($path)){
             $dirall = scandir($path);
@@ -164,51 +163,43 @@ class Application
         }
         $res['list'] = $list;
 
-echo $res['lm'];
+
+        //å½“å‰çš„æ ç›®
+        $arlist = [];
+        if(!empty($res['lm']) and in_array($res['lm'],$list)){     //ä¾‹å¦‚ test
+            //å‘çŽ°æ ç›®è¯·æ±‚''
+            //æ‰«æä¸‹é¢çš„æ‰€æœ‰æ–‡ä»¶
+            $path = $path.$res['lm'];
+            $arlist = [];
+            if(is_dir($path)){
+                $dirall = scandir($path);
+                foreach($dirall as $v) {
+                    if ($v != '.' && $v != '..') {
+                        if(strtolower(substr($v,-3)) == '.md')   $arlist[] = $v;
+                    }
+                }
+            }
+        }
+        $res['arlist'] = $arlist;
 
 
-        //µ±Ç°µÄÀ¸Ä¿
-        if(!empty($res['lm']) and in_array($res['lm'],$list)){     //ÀýÈç test
-            //·¢ÏÖÀ¸Ä¿ÇëÇó''
-            echo 'lm';
+        //æœ‰å…·ä½“æ–‡ç« ,è¯»å–å‡ºæ–‡ç« æ ‡é¢˜,æè¿° å’Œå†…å®¹
+        $arlistnr = $_arlistnr= [];
+        if($arlist){
+            foreach($arlist as $value){
+                $arfile =  $path.'/'.$value;
+                $nr = file_get_contents($arfile);
+                $ar = explode("\n",$nr);
+                $arlistnr[strtolower($value)]['title'] = trim($ar[0],'#>');
+                $arlistnr[strtolower($value)]['des'] = trim($ar[1],'#>');
+                $_arlistnr[strtolower($value)] = \Application\Server::getInstance()->make('Parsedown')->text($nr);
+            }
         }
 
+        $res['arlistnrlist'] = $arlistnr;
+        $res['nr'] = $_arlistnr[strtolower($res['ar'])];
 
-        //µ±Ç°µÄÎÄÕÂ
-        if(!empty($res['ar'])){
-
-        }
-
-
-
-        D($list);
-
-//            $dirall = scandir($this->storeroot.$this->chr.'/');
-//            foreach($dirall as $v){
-//                if(strpos($v,'.md'))
-//                    $res[] = trim($v,'.md');
-//
-//            }
-//        echo $path;
-        exit;
-
-
-
-
-
-
-
-
-
-
-
-
-            $res['list'] = $_SERVER['REQUEST_URI'];
-        $res['ar'] = $_SERVER['REQUEST_URI'];
-
+        return $res;
     }
-
-
-
 
 }

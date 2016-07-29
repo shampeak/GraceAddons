@@ -4,7 +4,7 @@ namespace Application;
 
 /*
 |------------------------------------------------------
-| ÔÚ×¢²á±íÖÐÉú³ÉÒ»¸öÀà£¬²¢ÇÒ·µ»Ø
+| åœ¨æ³¨å†Œè¡¨ä¸­ç”Ÿæˆä¸€ä¸ªç±»ï¼Œå¹¶ä¸”è¿”å›ž
 |------------------------------------------------------
 \Application\Bootstrap::run($make = null, $parameters = []);
 
@@ -27,39 +27,39 @@ class Bootstrap
 
     /*
     * @var null
-    * wiseµ¥Àýµ÷ÓÃ
+    * wiseå•ä¾‹è°ƒç”¨
     */
-    private static $_instance = null;       //µ¥Àýµ÷ÓÃ
-    public $Mo              = array();             //·þÎñ¶ÔÏó´æ´¢ Ó³Éä
-    //·þÎñ¶ÔÏó´æ´¢
-    public $Providers       = array();             //·þÎñ¶ÔÏó´æ´¢ Ó³Éä
-    //·þÎñ¶ÔÏóÅäÖÃÐÅÏ¢´æ´¢
-    public $ObjectConfig    = array();          //·þÎñ¶ÔÏóÅäÖÃÐÅÏ¢´æ´¢
+    private static $_instance = null;       //å•ä¾‹è°ƒç”¨
+    public $Mo              = array();             //æœåŠ¡å¯¹è±¡å­˜å‚¨ æ˜ å°„
+    //æœåŠ¡å¯¹è±¡å­˜å‚¨
+    public $Providers       = array();             //æœåŠ¡å¯¹è±¡å­˜å‚¨ æ˜ å°„
+    //æœåŠ¡å¯¹è±¡é…ç½®ä¿¡æ¯å­˜å‚¨
+    public $ObjectConfig    = array();          //æœåŠ¡å¯¹è±¡é…ç½®ä¿¡æ¯å­˜å‚¨
 
-    //¶ÔÏóÓ³Éä
-    public $FileReflect     = array();           //·þÎñ¶ÔÏó´æ´¢ Ó³Éä
-    //¶ÔÏóÊµÀý
-    public $instances       = array();             //·þÎñ¶ÔÏó´æ´¢ ÊµÀý
+    //å¯¹è±¡æ˜ å°„
+    public $FileReflect     = array();           //æœåŠ¡å¯¹è±¡å­˜å‚¨ æ˜ å°„
+    //å¯¹è±¡å®žä¾‹
+    public $instances       = array();             //æœåŠ¡å¯¹è±¡å­˜å‚¨ å®žä¾‹
 
     /*
     * @param string $conf
-    * ¸ù¾ÝÅäÖÃ»ñÈ¡Éè¶¨
+    * æ ¹æ®é…ç½®èŽ·å–è®¾å®š
     */
     private function __construct($voconfig = []){
-        $this->FileReflect      = $voconfig['FileReflect'];         //ÅäÖÃÎÄ¼þÓ³Éä
-        $this->Providers        = $voconfig['Providers'];           //¶ÔÏóÓ³Éä
+        $this->FileReflect      = $voconfig['FileReflect'];         //é…ç½®æ–‡ä»¶æ˜ å°„
+        $this->Providers        = $voconfig['Providers'];           //å¯¹è±¡æ˜ å°„
 
         if(is_array($this->FileReflect)){
             foreach($this->FileReflect as $key=>$file){
                 $this->ObjectConfig[ucfirst($key)] =  $this->load($file);
             }
         }
-        // print_r($this->ObjectConfig);       //»ñµÃÅäÖÃ $this->ObjectConfig
+        // print_r($this->ObjectConfig);       //èŽ·å¾—é…ç½® $this->ObjectConfig
     }
 
     /*
     |------------------------------------------------------------
-    | µ¥Àýµ÷ÓÃ
+    | å•ä¾‹è°ƒç”¨
     |------------------------------------------------------------
     */
     public static function getInstance($config = []){
@@ -71,7 +71,7 @@ class Bootstrap
 
     /*
     |------------------------------------------------------------
-    | ÊµÀý»¯×¢²áÀà
+    | å®žä¾‹åŒ–æ³¨å†Œç±»
     |------------------------------------------------------------
     */
     public function make($abstract,$parameters=[])
@@ -80,7 +80,7 @@ class Bootstrap
         if (isset($this->instances[$abstract])) {
             return $this->instances[$abstract];
         }
-        //Î´¶¨ÒåµÄ·þÎñÀà ·µ»Ø¿ÕÖµ;
+        //æœªå®šä¹‰çš„æœåŠ¡ç±» è¿”å›žç©ºå€¼;
         if (!isset($this->Providers[$abstract])) {
             return null;
         }
@@ -92,7 +92,7 @@ class Bootstrap
 
     /*
     |------------------------------------------------------------
-    | ÊµÀý»¯Ò»¸öÄ£ÐÍ
+    | å®žä¾‹åŒ–ä¸€ä¸ªæ¨¡åž‹
     |------------------------------------------------------------
     */
     public function makeModel($abstract)
@@ -101,19 +101,19 @@ class Bootstrap
             return $this->Mo[$abstract];
         }
         if(!class_exists($abstract)){
-            //Ã»ÓÐÕÒµ½Ö´ÐÐ·½·¨
-            //Ö´ÐÐ404;
+            //æ²¡æœ‰æ‰¾åˆ°æ‰§è¡Œæ–¹æ³•
+            //æ‰§è¡Œ404;
             echo '<br>Miss file : <br>';
             echo $abstract;
             D();
         }
-        //¼ì²éÀàÎÄ¼þÊÇ·ñ´æÔÚ
-        $this->Mo[$abstract] = new $abstract();     //Ä£ÐÍ´æ´¢
+        //æ£€æŸ¥ç±»æ–‡ä»¶æ˜¯å¦å­˜åœ¨
+        $this->Mo[$abstract] = new $abstract();     //æ¨¡åž‹å­˜å‚¨
 
         return $this->Mo[$abstract];
     }
 
-    //½ûÖ¹Íâ²¿µ÷ÓÃ
+    //ç¦æ­¢å¤–éƒ¨è°ƒç”¨
     private function build($abstract, array $parameters = [])
     {
         $obj_ = $this->Providers[$abstract];

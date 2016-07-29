@@ -29,6 +29,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/application.php">首页</a></li>
                 <!-- li><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
                 <li><a href="#">知识云</a></li>
                 <li><a href="#">设置</a></li>
                 <li><a href="#">说明</a></li -->
@@ -41,13 +42,6 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-<?php
-foreach($arlistnrlist as $key=>$value):
-?>
-    <li <?php if($key == $ar):?> class="active"<?php endif; ?>><a href="/application.php?documentlm=<?=$lm?>&documentar=<?=$key?>"><?=$value['title']?></a></li>
-<?php
-endforeach;
-?>
             </ul>
 
         </div>
@@ -55,7 +49,14 @@ endforeach;
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
-                        <?=$nr?>
+                    <?php
+                    foreach($list as $key=>$value):
+                        ?>
+                        <li><a href="/application.php?documentlm=<?=$value?>"><?=$value?></a></li>
+                        <?php
+                    endforeach;
+                    ?>
+
                 </div>
             </div>
             <footer class="footer">

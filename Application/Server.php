@@ -4,7 +4,7 @@ namespace Application;
 
 /*
 |------------------------------------------------------
-| ÔÚ×¢²á±íÖĞÉú³ÉÒ»¸öÀà£¬²¢ÇÒ·µ»Ø
+| åœ¨æ³¨å†Œè¡¨ä¸­ç”Ÿæˆä¸€ä¸ªç±»ï¼Œå¹¶ä¸”è¿”å›
 |------------------------------------------------------
 
 */
@@ -13,33 +13,33 @@ class Server
 {
     /*
     * @var null
-    * µ¥Àıµ÷ÓÃ
+    * å•ä¾‹è°ƒç”¨
     */
-    private static $_instance = null;       //µ¥Àıµ÷ÓÃ
-    //·şÎñ¶ÔÏóÅäÖÃĞÅÏ¢´æ´¢
-    public $ObjectConfig    = array();          //·şÎñ¶ÔÏóÅäÖÃĞÅÏ¢´æ´¢
-    //·şÎñ¶ÔÏó´æ´¢
-    public $Providers       = array();             //·şÎñ¶ÔÏó´æ´¢ Ó³Éä
-    //¶ÔÏóÓ³Éä
-    public $FileReflect     = array();           //·şÎñ¶ÔÏó´æ´¢ Ó³Éä
-    //¶ÔÏóÊµÀı
-    public $Instances       = array();             //·şÎñ¶ÔÏó´æ´¢ ÊµÀı
+    private static $_instance = null;       //å•ä¾‹è°ƒç”¨
+    //æœåŠ¡å¯¹è±¡é…ç½®ä¿¡æ¯å­˜å‚¨
+    public $ObjectConfig    = array();          //æœåŠ¡å¯¹è±¡é…ç½®ä¿¡æ¯å­˜å‚¨
+    //æœåŠ¡å¯¹è±¡å­˜å‚¨
+    public $Providers       = array();             //æœåŠ¡å¯¹è±¡å­˜å‚¨ æ˜ å°„
+    //å¯¹è±¡æ˜ å°„
+    public $FileReflect     = array();           //æœåŠ¡å¯¹è±¡å­˜å‚¨ æ˜ å°„
+    //å¯¹è±¡å®ä¾‹
+    public $Instances       = array();             //æœåŠ¡å¯¹è±¡å­˜å‚¨ å®ä¾‹
     private $Baseroot = '';
 
-    //»ñÈ¡»ù´¡ÅäÖÃ
+    //è·å–åŸºç¡€é…ç½®
     public function Config(){
         return $this->load(__DIR__.'/Config/Config.php');
     }
 
     /*
     * @param string $conf
-    * ¸ù¾İÅäÖÃ»ñÈ¡Éè¶¨
+    * æ ¹æ®é…ç½®è·å–è®¾å®š
     */
     private function __construct($voconfig = []){
         $this->Baseroot = __DIR__.'/';
-        $_ObjectConfig    = $this->load( __DIR__.'/Config/Server.php');           //¶ÔÏóÓ³Éä
-        $this->FileReflect      = $_ObjectConfig['FileReflect'];         //ÅäÖÃÎÄ¼şÓ³Éä
-        $this->Providers        = $_ObjectConfig['Providers'];           //¶ÔÏóÓ³Éä
+        $_ObjectConfig    = $this->load( __DIR__.'/Config/Server.php');           //å¯¹è±¡æ˜ å°„
+        $this->FileReflect      = $_ObjectConfig['FileReflect'];         //é…ç½®æ–‡ä»¶æ˜ å°„
+        $this->Providers        = $_ObjectConfig['Providers'];           //å¯¹è±¡æ˜ å°„
 
         if(is_array($this->FileReflect)){
             foreach($this->FileReflect as $key=>$file){
@@ -50,7 +50,7 @@ class Server
 
     /*
     |------------------------------------------------------------
-    | µ¥Àıµ÷ÓÃ
+    | å•ä¾‹è°ƒç”¨
     |------------------------------------------------------------
     */
     public static function getInstance($config = []){
@@ -63,7 +63,7 @@ class Server
 
     /**
      * @return array
-     * ÈİÆ÷¶ÔÏóÁĞ±í
+     * å®¹å™¨å¯¹è±¡åˆ—è¡¨
      */
     public function obList()
     {
@@ -72,7 +72,7 @@ class Server
 
     /*
     |------------------------------------------------------------
-    | ¶ÔÏóµ÷ÓÃ
+    | å¯¹è±¡è°ƒç”¨
     |------------------------------------------------------------
     */
     public function make($abstract,$parameters=[])
@@ -81,7 +81,7 @@ class Server
         if (isset($this->Instances[$abstract])) {
             return $this->Instances[$abstract];
         }
-        //Î´¶¨ÒåµÄ·şÎñÀà ·µ»Ø¿ÕÖµ;
+        //æœªå®šä¹‰çš„æœåŠ¡ç±» è¿”å›ç©ºå€¼;
         if (!isset($this->Providers[$abstract])) {
             return null;
         }
@@ -91,10 +91,10 @@ class Server
         return $this->Instances[$abstract];
     }
 
-    /**    //½ûÖ¹Íâ²¿µ÷ÓÃ
+    /**    //ç¦æ­¢å¤–éƒ¨è°ƒç”¨
      * @param       $abstract
      * @param array $parameters
-     * ÊµÀı»¯
+     * å®ä¾‹åŒ–
      * @return mixed
      */
     private function build($abstract, array $parameters = [])
@@ -106,7 +106,7 @@ class Server
 
     /**
      * @param string $file
-     * ÔØÈëÅäÖÃÎÄ¼ş
+     * è½½å…¥é…ç½®æ–‡ä»¶
      * @return array|mixed
      */
     public function load($file=''){
