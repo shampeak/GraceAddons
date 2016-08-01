@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Lulu\\' => array($vendorDir . '/lulu/db/src'),
-    'Grace\\' => array($vendorDir . '/grace/pack/src'),
+    'Grace\\' => array($vendorDir . '/grace/server/src'),
     'Application\\' => array($baseDir . '/Application'),
+    'App\\' => array($baseDir . '/App'),
 );

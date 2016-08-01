@@ -122,7 +122,7 @@ class Document
         $arpath =$this->path.$this->book.'/'.$this->lm.'/'.$this->ar;
         if(is_file($arpath)){
             $nr = file_get_contents($arpath);
-            $nr = \Application\Server::getInstance()->make('Parsedown')->text($nr);
+            $nr = \Grace\Server\Server::getInstance()->make('Parsedown')->text($nr);
         }else{
             $this->ar = '';
             $nr = '';

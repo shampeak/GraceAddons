@@ -37,18 +37,18 @@
             <hr>
 <pre>
 <?php
-$listserver = \Application\Server::getInstance()->obList();
+$listserver = Grace\Server\Server::getInstance()->obList();
 print_r($listserver);
 ?>
 </pre>
 
             <h2>Server::Config</h2>
             系统最底层配置信息<br>
-            $res = \Application\Server::getInstance()->Config();
+            $res = Grace\Server\Server::getInstance()->Config('Config');
             <hr>
 <pre>
 <?php
-$res = \Application\Server::getInstance()->Config();            // 底层配置 -> Config/Config.php
+$res = Grace\Server\Server::getInstance()->Config('Config');            // 底层配置 -> Config/Config.php
 print_r($res);
 ?>
 </pre>
@@ -66,7 +66,7 @@ print_r($listapplication);
 
             <h2>Server::ApplicationConfig</h2>
             应用配置 必须与server的应用列表对应
-            <br>$res = \Application\Server::getInstance()->ApplicationConfig();
+            <br>$res = Grace\Server\Server::getInstance()->ApplicationConfig();
             <hr>
 <pre>
 //这两个必须相等
@@ -75,7 +75,7 @@ $res = \Application\Server::getInstance()->ApplicationConfig();
 </pre>
 <pre>
 <?php
-$res = \Application\Server::getInstance()->ApplicationConfig(); // 获取application配置  ->Config/Application.php
+$res = Grace\Server\Server::getInstance()->Config('Application'); // 获取application配置  ->Config/Application.php
 print_r($res);
 ?>
 </pre>

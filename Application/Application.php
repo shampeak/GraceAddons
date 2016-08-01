@@ -27,7 +27,8 @@ class Application
     private function __construct($voconfig = []){
         //遍历application目录下的文件,建立对象目录
         $this->Baseroot = __DIR__.'/';
-        $this->Providers    = \Application\Server::getInstance()->ApplicationConfig();
+        $this->Providers    = \Grace\Server\Server::getInstance()->Config('Application');
+//        D(\Grace\Server\Server::getInstance('../Application/Config/'));
     }
 
     /*

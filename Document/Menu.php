@@ -50,6 +50,8 @@ if(!empty($book)):
 <?php
 endif;
 ?>
+
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Book <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -74,7 +76,7 @@ endif;
 
                     </ul>
                 </li>
-                <li><a href="http://ga.so/unit/document.php?book=00-api">Api</a></li>
+                <li><a href="<?=$entrancefile?>?book=00-api">Api</a></li>
                 <!--li><a href="#">设置</a></li -->
             </ul>
         </div>

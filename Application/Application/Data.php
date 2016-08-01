@@ -22,7 +22,7 @@ class Data
     }
 
     public function __construct(){
-        $this->rootpath = \Application\Server::getInstance()->Config()['DataPath'];
+        $this->rootpath = \Grace\Server\Server::getInstance()->Config('DataPath');
     }
 
     public function key($key='Default')

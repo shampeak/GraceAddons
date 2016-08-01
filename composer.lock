@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1ff72e70643e3555618c530f401fd309",
-    "content-hash": "c8fe70b6f099061b47620534f5505243",
+    "hash": "52cb9e08c454fd31552940744c3d3ae1",
+    "content-hash": "9a1bbc1d53b2be99d820e6d585067919",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -47,21 +47,25 @@
             "time": "2015-10-04 16:44:32"
         },
         {
-            "name": "grace/pack",
-            "version": "v1.0.2.x-dev",
+            "name": "grace/server",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/shampeak/GracePack.git",
-                "reference": "853cb7be5a1e17a25773d49d0f0e84c821f2ce62"
+                "url": "https://github.com/shampeak/GraceServer.git",
+                "reference": "7c27e00860d2cb3a3560d4ab12adaffe3e28d455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shampeak/GracePack/zipball/853cb7be5a1e17a25773d49d0f0e84c821f2ce62",
-                "reference": "853cb7be5a1e17a25773d49d0f0e84c821f2ce62",
+                "url": "https://api.github.com/repos/shampeak/GraceServer/zipball/7c27e00860d2cb3a3560d4ab12adaffe3e28d455",
+                "reference": "7c27e00860d2cb3a3560d4ab12adaffe3e28d455",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.5",
+                "smarty/smarty": "~3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.27"
             },
             "type": "library",
             "autoload": {
@@ -80,52 +84,7 @@
                 }
             ],
             "description": "dev",
-            "time": "2016-07-09 06:36:19"
-        },
-        {
-            "name": "lulu/db",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/siluzhou/DBDriver.git",
-                "reference": "cffd78b3592b6583dfa47bdc51afd012bd83500f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/siluzhou/DBDriver/zipball/cffd78b3592b6583dfa47bdc51afd012bd83500f",
-                "reference": "cffd78b3592b6583dfa47bdc51afd012bd83500f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Lulu\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "siluzhou",
-                    "email": "siluzhou_pku@163.com"
-                }
-            ],
-            "description": "DBDriver",
-            "keywords": [
-                "database",
-                "pdo"
-            ],
-            "time": "2016-07-02 02:55:36"
+            "time": "2016-08-01 11:32:55"
         },
         {
             "name": "smarty/smarty",
@@ -187,12 +146,12 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "grace/pack": 20
+        "grace/server": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=5.5"
     },
     "platform-dev": []
 }

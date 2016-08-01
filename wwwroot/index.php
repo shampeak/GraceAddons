@@ -1,19 +1,19 @@
 <?php
+
+/**
+ * document对象,指定一个目录 就可以按照约定生成文档发布
+ */
+
 include("../vendor/autoload.php");
 define('APPROOT', '../App/');
 
-//$error_reporting       = E_ALL ^ E_NOTICE;
-//$error_reporting       = E_ALL;
-////错误提示
-//ini_set('error_reporting', $error_reporting);
-//or
-//error_reporting(0);
-
-//时区
-//ini_set('date.timezone','Asia/Shanghai');
+$error_reporting       = E_ALL ^ E_NOTICE;
+ini_set('error_reporting', $error_reporting);
 
 
-\App\Bootstrap::run();
-
-//\Addons\Bootstrap::run();
-
+/**
+ * 文档系统测试
+ */
+\Grace\Server\Server::getInstance('../Application/Config/');        //先建立server配置路径
+$document = \Application\Application::getInstance()->make('Document');
+$document->run("../Document/");
