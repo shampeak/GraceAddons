@@ -45,10 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
-.gitignore.bak
-.svn
 .idea
-_
-__
+vendor
+

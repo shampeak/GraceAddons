@@ -50,5 +50,8 @@ Temporary Items
 .gitignore.bak
 .svn
 .idea
-_
-__
+wwwroot\PhpMyAdmin
+Store
+vendor/
+
+
