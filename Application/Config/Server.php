@@ -16,14 +16,13 @@ return [
     ],
 
     'Providers'=>[
+        'Smarty'    => Grace\Smarty\Smarty::class,
         'Req'       => Grace\Req\Req::class,             //
         'View'      => Grace\View\View::class,           //
-        'Smarty'    => Grace\Smarty\Smarty::class,
         'Db'        => Grace\Db\Db::class,
         'Parsedown' => Parsedown::class,
         'Cookies'   => Grace\Cookies\Cookies::class,
         'Adminauth'   => Grace\Adminauth\Adminauth::class,
-        'Mmcfile'   => Grace\Mmcfile\Mmcfile::class,
     ],
 
 ];

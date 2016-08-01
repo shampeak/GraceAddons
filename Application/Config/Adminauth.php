@@ -8,5 +8,5 @@
 
 return [
 //    ['adminName']   => 'singleAdmin',
-    'password'   => '123456'
+    'password'   => '1234567'
 ];

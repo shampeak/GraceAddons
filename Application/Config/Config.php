@@ -13,7 +13,7 @@ return [
     | error_reporting(E_ALL | E_PARSE);
     | E_ALL ^ E_PARSE,
     */
-    'viewpath'              => '../App/Views/',
+    'viewpath'              => APPROOT.'../App/Views/',
     /*
     |--------------------------------------------------------------------------
     | 执行环境参数
@@ -37,6 +37,10 @@ return [
         'ErrorPageMsg'    => 'Error/ErrorMsg.php',
         'MessagePageView' => 'Error/ErrorView.php',
     ],
+    /**
+     * Application::data
+     */
+    'DataPath' => APPROOT.'../Cache/Data/',
 
 ];
 

@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'Test' => 'Application\Application\Test',
+    'Document'  => 'Application\Application\Document',
+    'Data'      => 'Application\Application\Data',
 ];

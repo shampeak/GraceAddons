@@ -12,15 +12,8 @@ define('APPROOT', '../App/');
 //时区
 //ini_set('date.timezone','Asia/Shanghai');
 
-$res = \Application\Application::getInstance()->document();
 
-
-
-
-D($res);
-
-
-//\App\Bootstrap::run();
+\App\Bootstrap::run();
 
 //\Addons\Bootstrap::run();
 

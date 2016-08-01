@@ -7,6 +7,7 @@ namespace Application;
 class Application
 {
 
+
     /*
     * @var null
     * wise单例调用
@@ -26,19 +27,7 @@ class Application
     private function __construct($voconfig = []){
         //遍历application目录下的文件,建立对象目录
         $this->Baseroot = __DIR__.'/';
-        $this->Providers    = $this->load( __DIR__.'/Config/Application.php');           //对象映射
-
-//        $this->FileReflect      = $voconfig['FileReflect'];         //配置文件映射
-//        $this->Providers        = $voconfig['Providers'];           //对象映射
-
-//
-//        if(is_array($this->FileReflect)){
-//            foreach($this->FileReflect as $key=>$file){
-//                $this->ObjectConfig[ucfirst($key)] =  $this->load($file);
-//            }
-//        }
-//        // print_r($this->ObjectConfig);       //获得配置 $this->ObjectConfig
-
+        $this->Providers    = \Application\Server::getInstance()->ApplicationConfig();
     }
 
     /*
@@ -120,86 +109,6 @@ class Application
         return [];
     }
 
-    /**
-     * @return string
-     * 解析文档数据
-     */
-    public function document()
-    {
-        $data = $this->documentData();
-       // D($data);
-        extract($data);
-        if(empty($data['lm']) && empty($data['ar'])){
-            include $this->Baseroot.'Document/Application/Index.php';
-        }else{
-            include $this->Baseroot.'Document/Application/Frame.php';
-        }
 
-        exit;
-    }
-
-    /**
-     * @return string
-     * 返回文档数据结构
-     */
-    public function documentData()
-    {
-        //list列表
-        $path = $this->Baseroot.'Document/Application/';
-
-        //定位需要两个变量 1 lm 2 ar
-        $res['lm'] = ucfirst(strtolower($_GET['documentlm']));
-        $res['ar'] = strtolower($_GET['documentar']);
-
-        //扫描下面的文件夹
-        $list = [];
-        if(is_dir($path)){
-            $dirall = scandir($path);
-            foreach($dirall as $v) {
-                if ($v != '.' && $v != '..') {
-                    if(is_dir($path.$v))    $list[] = $v;
-                }
-            }
-        }
-        $res['list'] = $list;
-
-
-        //当前的栏目
-        $arlist = [];
-        if(!empty($res['lm']) and in_array($res['lm'],$list)){     //例如 test
-            //发现栏目请求''
-            //扫描下面的所有文件
-            $path = $path.$res['lm'];
-            $arlist = [];
-            if(is_dir($path)){
-                $dirall = scandir($path);
-                foreach($dirall as $v) {
-                    if ($v != '.' && $v != '..') {
-                        if(strtolower(substr($v,-3)) == '.md')   $arlist[] = $v;
-                    }
-                }
-            }
-        }
-        $res['arlist'] = $arlist;
-
-
-        //有具体文章,读取出文章标题,描述 和内容
-        $arlistnr = $_arlistnr= [];
-        if($arlist){
-            foreach($arlist as $value){
-                $arfile =  $path.'/'.$value;
-                $nr = file_get_contents($arfile);
-                $ar = explode("\n",$nr);
-                $arlistnr[strtolower($value)]['title'] = trim($ar[0],'#>');
-                $arlistnr[strtolower($value)]['des'] = trim($ar[1],'#>');
-                $_arlistnr[strtolower($value)] = \Application\Server::getInstance()->make('Parsedown')->text($nr);
-            }
-        }
-
-        $res['arlistnrlist'] = $arlistnr;
-        $res['nr'] = $_arlistnr[strtolower($res['ar'])];
-
-        return $res;
-    }
 
 }

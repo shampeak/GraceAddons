@@ -21,26 +21,30 @@ class Bootstrap
         //set_error_handler(array('\App\Bootstrap', 'customError'));      //自定义错误处理
 
         /*系统级配置*/
-        dc(\Grace\Vo\Vo::getInstance(include(APPROOT.'Config/Vo.php'))->ObjectConfig['Config']);
 
-        $get = app('req')->get;
+        //D();
+        //dc(\Grace\Vo\Vo::getInstance(include(APPROOT.'Config/Vo.php'))->ObjectConfig['Config']);
+        dc(\Application\Server::getInstance()->Config());
+
+//        $get = app('req')->get;
+        $req = \Application\Server::getInstance()->make('req');
+        $get = $req->get;
 
         $controller = ($get['c']?:(isset($get['C'])?$get['C']:''))?:'Home';
         $mothed     = ($get['a']?:(isset($get['A'])?$get['A']:''))?:'Index';
 
         req([                   //req 数据模型
-            'Get'   => app('req')->get,
-            'Post'  => app('req')->post,
-            'Env'   => app('req')->env,
+            'Get'   => $req->get,
+            'Post'  => $req->post,
+            'Env'   => $req->env,
             'Router'=> [
-                'type'      => app('req')->env['REQUEST_METHOD'],
+                'type'      => $req->env['REQUEST_METHOD'],
                 'controller'    => ucfirst(strtolower($controller)),
                 'mothed'        => ucfirst(strtolower($mothed)),
-                'params'        => app('req')->get['params'],
+                'params'        => $req->get['params'],
                 'Prefix'        => 'do',
             ],
         ]);
-
         //ok,路由字段设置好了
 
         $router = req('Router');
@@ -125,13 +129,6 @@ class Bootstrap
         echo " Error on line $errline <br>in $errfile<br />";
         echo "Ending Script";
         die();
-    }
-
-    public static function load($file=''){
-        if(file_exists($file)){
-            return include $file;
-        }
-        return [];
     }
 
 }

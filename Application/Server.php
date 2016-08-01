@@ -31,6 +31,12 @@ class Server
         return $this->load(__DIR__.'/Config/Config.php');
     }
 
+    //application配置
+    //这个会在application中进行读取
+    public function ApplicationConfig(){
+        return $this->load(__DIR__.'/Config/Application.php');
+    }
+
     /*
     * @param string $conf
     * 根据配置获取设定
